@@ -17,11 +17,11 @@ export default function Home() {
       {/* Your content goes here */}
       <div className="text-center  text-white">
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-6xl font-bold text-black">
+          <h1 className="text-[50px] font-bold text-black">
             Your financial future starts{" "}
             <span className="text-[#5136C1]">here</span>
           </h1>
-          <p className="mt-4 text-xl text-black font-bricolage-grotesque">
+          <p className="mt-4 text-[20px] text-black font-bricolage-grotesque">
             Reserve your spot on our waitlist for exclusive access to Rahapay.
             Join us and reap benefits
           </p>
