@@ -2,28 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define color variables */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0; /* Default foreground color for light mode */
+  --background-rgb: 255, 255, 255; /* White background for all modes */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255; /* Foreground color for dark mode */
+    /* No need to change the background color for dark mode */
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(
+    var(--background-rgb)
+  ); /* Ensure background is always white */
 }
 
 @layer utilities {
