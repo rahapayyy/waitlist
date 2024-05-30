@@ -16,51 +16,66 @@ export default function Home() {
     >
       {/* Purple Overlay */}
       <div className="absolute inset-0 bg-[#5136C1] opacity-20"></div>
-
       {/* Your content goes here */}
-      <div className="relative text-center text-white z-10">
+      <div className="relative text-center text-white z-10 px-4 sm:px-0">
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-[50px] font-bold text-black">
+          <h1 className="text-4xl sm:text-5xl font-bold text-black">
             Your financial future starts{" "}
             <span className="text-[#5136C1]">here</span>
           </h1>
-          <p className="mt-4 text-[20px] text-black font-bricolage-grotesque">
+          <p className="mt-4 text-lg sm:text-xl text-black font-bricolage-grotesque">
             Reserve your spot on our waitlist for exclusive access to Rahapay.
             Join us and reap benefits
           </p>
         </div>
 
         {/* Input Container */}
-        <div className="flex items-center justify-center space-x-4 mt-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
           <input
             type="email"
             placeholder="Email Address"
-            className="px-4 w-96 py-4 bg-white text-gray-600 rounded-md shadow-2xl outline-none focus:ring-2 focus:ring-[#5136C1]"
+            className="px-4 w-full sm:w-96 py-4 bg-white text-gray-600 rounded-md shadow-2xl outline-none focus:ring-2 focus:ring-[#5136C1]"
           />
-          <Button className="py-7 px-6 bg-[#5136C1] text-white font-semibold rounded-md shadow-md hover:bg-[#5038af] transition duration-200">
+          <Button className="py-6 sm:py-7 px-6 bg-[#5136C1] text-white font-semibold rounded-md shadow-md hover:bg-[#5038af] transition duration-200 w-full sm:w-auto">
             Get Early Access
           </Button>
         </div>
 
         {/* Social Link */}
-        <div className="flex space-x-4 justify-center items-center mt-20">
+        <div className="mt-6 sm:mt-20 flex justify-center items-center space-x-4">
           <Link href={"/"}>
-            <Image src={x} alt="" />
+            <Image src={x} alt="social icon x" width={30} height={30} />
           </Link>
           <Link href={"/"}>
-            <Image src={ig} alt="" />
+            <Image
+              src={ig}
+              alt="social icon instagram"
+              width={30}
+              height={30}
+            />
           </Link>
           <Link href={"/"}>
-            <Image src={lin} alt="" />
+            <Image
+              src={lin}
+              alt="social icon linkedin"
+              width={30}
+              height={30}
+            />
           </Link>
           <Link href={"/"}>
-            <Image src={wa} alt="" />
+            <Image src={wa} alt="social icon whatsapp" width={30} height={30} />
           </Link>
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-0 z-10">
-        <Image src={phone} alt="phone" width={450} height={50} />
+      <div className="absolute bottom-0 right-0 z-10 w-full max-w-[180px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[450px]">
+        <Image
+          src={phone}
+          alt="phone"
+          layout="responsive"
+          width={450}
+          height={537} 
+        />
       </div>
     </main>
   );
