@@ -1,5 +1,6 @@
 import Image from "next/image";
 import bg from "../../public/images/bg.png";
+import NavBar from "./components/NavBar";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
           Your financial future starts here
         </h1>
         <p className="mt-4 text-lg text-black">
-          YReserve your spot on our waitlist for exclusive access to Rahapay.
+          Reserve your spot on our waitlist for exclusive access to Rahapay.
           Join us and reap benefits
         </p>
       </div>
