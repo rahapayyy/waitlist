@@ -14,8 +14,11 @@ export default function Home() {
       className="relative flex flex-col justify-center h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
+      {/* Purple Overlay */}
+      <div className="absolute inset-0 bg-[#5136C1] opacity-20"></div>
+
       {/* Your content goes here */}
-      <div className="text-center  text-white">
+      <div className="relative text-center text-white z-10">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-[50px] font-bold text-black">
             Your financial future starts{" "}
@@ -56,7 +59,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-0 ">
+      <div className="absolute bottom-0 right-0 z-10">
         <Image src={phone} alt="phone" width={450} height={50} />
       </div>
     </main>
