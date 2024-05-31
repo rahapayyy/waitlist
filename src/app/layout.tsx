@@ -7,9 +7,9 @@ import NavBar from "./components/NavBar";
 const bricolage_grotesque = Bricolage_Grotesque({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "rahaPay-waitlist",
+  title: "rahapay-waitlist",
   description: "Where convenience meets seamless bill payment",
-  icons: "",
+  icons: "images/icon.png",
 };
 
 export default function RootLayout({
