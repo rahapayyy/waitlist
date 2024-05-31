@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import bg from "../../public/images/bg.png";
 import phone from "../../public/images/iPhone 13 Pro.png";
@@ -43,10 +44,18 @@ export default function Home() {
 
         {/* Social Link */}
         <div className="mt-6 sm:mt-20 flex justify-center items-center space-x-4">
-          <Link href={"/"} target="_blank" rel="noopener noreferrer">
+          <Link
+            href={"https://twitter.com/raha_pay"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image src={x} alt="social icon x" width={30} height={30} />
           </Link>
-          <Link href={"/"} target="_blank" rel="noopener noreferrer">
+          <Link
+            href={"https://www.linkedin.com/company/rahapay/"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src={ig}
               alt="social icon instagram"
@@ -54,7 +63,11 @@ export default function Home() {
               height={30}
             />
           </Link>
-          <Link href={"/"} target="_blank" rel="noopener noreferrer">
+          <Link
+            href={"https://www.linkedin.com/company/rahapay/"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src={lin}
               alt="social icon linkedin"
