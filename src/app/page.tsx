@@ -43,7 +43,7 @@ export default function Home() {
 
         {/* Social Link */}
         <div className="mt-6 sm:mt-20 flex justify-center items-center space-x-4">
-          <Link href={"/"}>
+          <Link href={"/"} target="_blank" rel="noopener noreferrer">
             <Image src={x} alt="social icon x" width={30} height={30} />
           </Link>
           <Link href={"/"} target="_blank" rel="noopener noreferrer">
