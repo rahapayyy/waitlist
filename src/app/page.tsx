@@ -46,7 +46,7 @@ export default function Home() {
           <Link href={"/"}>
             <Image src={x} alt="social icon x" width={30} height={30} />
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} target="_blank" rel="noopener noreferrer">
             <Image
               src={ig}
               alt="social icon instagram"
@@ -54,7 +54,7 @@ export default function Home() {
               height={30}
             />
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} target="_blank" rel="noopener noreferrer">
             <Image
               src={lin}
               alt="social icon linkedin"
@@ -62,7 +62,7 @@ export default function Home() {
               height={30}
             />
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} target="_blank" rel="noopener noreferrer">
             <Image src={wa} alt="social icon whatsapp" width={30} height={30} />
           </Link>
         </div>
@@ -74,7 +74,7 @@ export default function Home() {
           alt="phone"
           layout="responsive"
           width={450}
-          height={537} 
+          height={537}
         />
       </div>
     </main>
