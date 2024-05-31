@@ -9,7 +9,7 @@ const bricolage_grotesque = Bricolage_Grotesque({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "rahapay-waitlist",
   description: "Where convenience meets seamless bill payment",
-  icons: "images/icon.png",
+  icons: "/icon.png",
 };
 
 export default function RootLayout({
