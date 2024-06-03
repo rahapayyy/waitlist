@@ -17,13 +17,16 @@ export default function Home() {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/submitEmail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      const res = await fetch(
+        "https://rahapay-waitlist-default-rtdb.firebaseio.com/users.json",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
       const data = await res.json();
       if (res.status === 200) {
         setMessage("Successfully added to waitlist!");

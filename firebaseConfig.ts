@@ -8,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDT6MB5AilTQYR7GVmmAj1SDubRpaF1__w",
+  apiKey: process.env.API_KEY,
   authDomain: "rahapay-waitlist.firebaseapp.com",
   databaseURL: "https://rahapay-waitlist-default-rtdb.firebaseio.com",
   projectId: "rahapay-waitlist",
