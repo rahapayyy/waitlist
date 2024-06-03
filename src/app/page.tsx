@@ -10,10 +10,12 @@ import wa from "../../public/svg/Group 3.svg";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import Loading from "./components/Loading";
+import Modal from "./components/Modal";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
@@ -34,11 +36,14 @@ export default function Home() {
       if (res.status === 200) {
         setMessage("Successfully added to waitlist!");
         setEmail("");
+        setIsSuccess(true);
       } else {
         setMessage("Failed to join the waitlist. Please try again.");
+        setIsSuccess(false);
       }
     } catch (error) {
       setMessage("An error occurred. Please try again.");
+      setIsSuccess(false);
     } finally {
       setLoading(false);
     }
@@ -50,6 +55,13 @@ export default function Home() {
       style={{ backgroundImage: `url(${bg.src})` }}
     >
       {loading && <Loading />}
+      {message && (
+        <Modal
+          message={message}
+          onClose={() => setMessage("")}
+          isSuccess={isSuccess}
+        />
+      )}
       {/* Purple Overlay */}
       <div className="absolute inset-0 bg-[#5136C1] opacity-20"></div>
       {/* Your content goes here */}
@@ -85,7 +97,6 @@ export default function Home() {
             Get Early Access
           </Button>
         </form>
-        {message && <p className="mt-4 text-black">{message}</p>}
 
         {/* Social Link */}
         <div className="mt-6 sm:mt-20 flex justify-center items-center space-x-4">
