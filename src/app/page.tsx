@@ -22,7 +22,27 @@ export default function Home() {
     e.preventDefault();
     setLoading(true);
     try {
+      // Check if the email already exists in the database
       const res = await fetch(
+        `https://rahapay-waitlist-default-rtdb.firebaseio.com/users.json?orderBy="email"&equalTo="${email}"`,
+        {
+          method: "GET",
+        }
+      );
+      const data = await res.json();
+
+      // If the email already exists, show an error message
+      if (Object.keys(data).length > 0) {
+        setMessage(
+          "You are already on the waitlist. We'll notify you when spots become available!"
+        );
+        setIsSuccess(false);
+        setLoading(false);
+        return;
+      }
+
+      // If the email doesn't exist, add it to the database
+      const response = await fetch(
         "https://rahapay-waitlist-default-rtdb.firebaseio.com/users.json",
         {
           method: "POST",
@@ -32,8 +52,9 @@ export default function Home() {
           body: JSON.stringify({ email }),
         }
       );
-      const data = await res.json();
-      if (res.status === 200) {
+
+      // Handle the response from the server
+      if (response.status === 200) {
         setMessage("Successfully added to waitlist!");
         setEmail("");
         setIsSuccess(true);
