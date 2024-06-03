@@ -9,13 +9,16 @@ import lin from "../../public/svg/icomoon-free_linkedin.svg";
 import wa from "../../public/svg/Group 3.svg";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
+import Loading from "./components/Loading";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await fetch(
         "https://rahapay-waitlist-default-rtdb.firebaseio.com/users.json",
@@ -36,6 +39,8 @@ export default function Home() {
       }
     } catch (error) {
       setMessage("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -44,6 +49,7 @@ export default function Home() {
       className="relative flex flex-col justify-center h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
+      {loading && <Loading />}
       {/* Purple Overlay */}
       <div className="absolute inset-0 bg-[#5136C1] opacity-20"></div>
       {/* Your content goes here */}
