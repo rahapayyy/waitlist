@@ -12,6 +12,10 @@ import Link from "next/link";
 import Loading from "./components/Loading";
 import Modal from "./components/Modal";
 
+interface User {
+  email: string;
+}
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -21,25 +25,43 @@ export default function Home() {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setLoading(true);
+
     try {
-      const res = await fetch(
-        "https://rahapay-waitlist-default-rtdb.firebaseio.com/users.json",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        }
+      // Check if the email already exists
+      const checkRes = await fetch(
+        `https://rahapay-waitlist-default-rtdb.firebaseio.com/users.json`
       );
-      const data = await res.json();
-      if (res.status === 200) {
-        setMessage("Successfully added to waitlist!");
-        setEmail("");
-        setIsSuccess(true);
-      } else {
-        setMessage("Failed to join the waitlist. Please try again.");
+      const checkData = await checkRes.json();
+      
+      // Extract existing emails
+      const existingEmails = Object.values(checkData).map(
+        (user) => (user as User).email
+      );
+      
+      if (existingEmails.includes(email)) {
+        setMessage("You have already signed up for the waitlist.");
         setIsSuccess(false);
+      } else {
+        // If email does not exist, add to waitlist
+        const res = await fetch(
+          "https://rahapay-waitlist-default-rtdb.firebaseio.com/users.json",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          }
+        );
+
+        if (res.status === 200) {
+          setMessage("Successfully added to waitlist!");
+          setEmail("");
+          setIsSuccess(true);
+        } else {
+          setMessage("Failed to join the waitlist. Please try again.");
+          setIsSuccess(false);
+        }
       }
     } catch (error) {
       setMessage("An error occurred. Please try again.");
@@ -48,7 +70,7 @@ export default function Home() {
       setLoading(false);
     }
   };
-
+  
   return (
     <main
       className="relative flex flex-col justify-center h-screen bg-cover bg-center bg-no-repeat"
