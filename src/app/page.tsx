@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import { useState } from "react";
 import Image from "next/image";
 import background from "../../public/images/background.png";
@@ -72,6 +73,22 @@ export default function Home() {
       className="relative flex flex-col justify-between items-center md:px-14 lg:px-20 pt-28 sm:pt-36 h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${background.src})` }}
     >
+      <Head>
+      <title>Rahapay - Simplify Your Bill Payments (Waitlist)</title>
+      <meta 
+        name="description" 
+        content="Rahapay is the future of bill payments. Join the waitlist now to be the first to experience a hassle free way to manage your finances"
+      />
+      <meta 
+        property="og:title"
+        content="Rahapay - Simplify Your Bill Payments (waitlist)"
+      />
+      <meta 
+        property="og:description"
+        content="Rahapay is the future of Bill payments. Join our waitlist"
+      />
+      </Head>
+
       {loading && <Loading />}
       {message && (
         <Modal
@@ -80,10 +97,6 @@ export default function Home() {
           isSuccess={isSuccess}
         />
       )}
-
-      {/* Purple Overlay */}
-      {/*<div className="absolute inset-0 bg-[#5136C1] opacity-20"></div>*/} 
-
 
       <div className="relative text-center text-white z-10 px-4 sm:px-0">
         <div className="w-full md:max-w-6xl lg:max-w-5xl mx-auto">
@@ -117,7 +130,7 @@ export default function Home() {
           </Button>
         </form>
       </div>
-      <div className="flex h-2/6 md:h-auto w-full sm:w-4/5 lg:w-3/5 px-5 md:p-0">
+      <div className="flex h-5/12 md:h-auto w-full sm:w-4/5 lg:w-3/5 px-5 md:p-0">
         <Image
           src={heroImg}
           alt="phone"
