@@ -1,6 +1,6 @@
 "use client";
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import background from "../../public/images/background.png";
 import heroImg from "../../public/images/heroImg.png";
@@ -8,6 +8,7 @@ import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import Loading from "./components/Loading";
 import Modal from "./components/Modal";
+import CarouselPlugin from "./components/CarouselPlugin";
 
 interface User {
   email: string;
@@ -98,11 +99,9 @@ export default function Home() {
         />
       )}
 
-      <div className="relative text-center text-white z-10 px-4 sm:px-0">
-        <div className="w-full md:max-w-6xl lg:max-w-5xl mx-auto">
-          <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black">
-            The future of <span className="text-[#5136C1]">Bill Payments</span>
-          </h1>
+      <div className="relative flex flex-col items-center text-center text-white z-10 px-4 sm:px-0 w-full">
+        <div className="w-full md:max-w-6xl lg:max-w-7xl mx-auto">
+          <CarouselPlugin />
           <p className="mt-4 text-lg md:text-xl text-black font-bricolage-grotesque text-center">
             Say Goodbye to Bill Hassles - Join the Waitlist Now and Be First to <br className="hidden sm:block" /> Simplify
             Your Finances!
@@ -112,7 +111,7 @@ export default function Home() {
         {/* Input Container */}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8"
+          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8 w-full md:w-4/5"
         >
           <input
             type="email"
