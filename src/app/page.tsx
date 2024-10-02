@@ -75,19 +75,20 @@ export default function Home() {
       style={{ backgroundImage: `url(${background.src})` }}
     >
       <Head>
-      <title>Rahapay - Simplify Your Bill Payments (Waitlist)</title>
-      <meta 
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="16x16 32x32 64x64" />
+        <title>Rahapay - Simplify Your Bill Payments (Waitlist)</title>
+        <meta 
         name="description" 
         content="Rahapay is the future of bill payments. Join the waitlist now to be the first to experience a hassle free way to manage your finances"
-      />
-      <meta 
+        />
+        <meta 
         property="og:title"
         content="Rahapay - Simplify Your Bill Payments (waitlist)"
-      />
-      <meta 
+        />
+        <meta 
         property="og:description"
         content="Rahapay is the future of Bill payments. Join our waitlist"
-      />
+        />
       </Head>
 
       {loading && <Loading />}
