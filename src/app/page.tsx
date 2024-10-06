@@ -1,16 +1,14 @@
 "use client";
-import { useState } from "react";
+import Head from "next/head";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import bg from "../../public/images/bg.png";
-import phone from "../../public/images/iPhone 13 Pro.png";
-import x from "../../public/svg/flowbite_x-solid.svg";
-import ig from "../../public/svg/ri_instagram-fill.svg";
-import lin from "../../public/svg/icomoon-free_linkedin.svg";
-import wa from "../../public/svg/Group 3.svg";
+import background from "../../public/images/background.png";
+import heroImg from "../../public/images/heroImg.png";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import Loading from "./components/Loading";
 import Modal from "./components/Modal";
+import CarouselPlugin from "./components/CarouselPlugin";
 
 interface User {
   email: string;
@@ -73,9 +71,26 @@ export default function Home() {
   
   return (
     <main
-      className="relative flex flex-col justify-center h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${bg.src})` }}
+      className="relative flex flex-col justify-between items-center md:px-14 lg:px-20 pt-28 sm:pt-36 h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${background.src})` }}
     >
+      <Head>
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="16x16 32x32 64x64" />
+        <title>Rahapay - Simplify Your Bill Payments (Waitlist)</title>
+        <meta 
+        name="description" 
+        content="Rahapay is the future of bill payments. Join the waitlist now to be the first to experience a hassle free way to manage your finances"
+        />
+        <meta 
+        property="og:title"
+        content="Rahapay - Simplify Your Bill Payments (waitlist)"
+        />
+        <meta 
+        property="og:description"
+        content="Rahapay is the future of Bill payments. Join our waitlist"
+        />
+      </Head>
+
       {loading && <Loading />}
       {message && (
         <Modal
@@ -84,31 +99,26 @@ export default function Home() {
           isSuccess={isSuccess}
         />
       )}
-      {/* Purple Overlay */}
-      <div className="absolute inset-0 bg-[#5136C1] opacity-20"></div>
-      {/* Your content goes here */}
-      <div className="relative text-center text-white z-10 px-4 sm:px-0">
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl font-bold text-black">
-            Your financial future starts{" "}
-            <span className="text-[#5136C1]">here</span>
-          </h1>
-          <p className="mt-4 text-lg sm:text-xl text-black font-bricolage-grotesque">
-            Reserve your spot on our waitlist for exclusive access to Rahapay.
-            Join us and reap benefits
+
+      <div className="relative flex flex-col items-center text-center text-white z-10 px-4 sm:px-0 w-full">
+        <div className="w-full md:max-w-6xl lg:max-w-7xl mx-auto">
+          <CarouselPlugin />
+          <p className="mt-4 text-lg md:text-xl text-black font-bricolage-grotesque text-center">
+            Say Goodbye to Bill Hassles - Join the Waitlist Now and Be First to <br className="hidden sm:block" /> Simplify
+            Your Finances!
           </p>
         </div>
 
         {/* Input Container */}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6"
+          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8 w-full md:w-4/5"
         >
           <input
             type="email"
             required
             placeholder="Email Address"
-            className="px-4 w-full sm:w-96 py-4 bg-white text-gray-600 rounded-md shadow-2xl outline-none focus:ring-2 focus:ring-[#5136C1]"
+            className="px-4 w-full md:w-1/2 sm:w-96 py-4 bg-white text-gray-600 rounded-xl outline-none focus:ring-2 focus:ring-[#5136C1] border-2 border-[]"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -119,55 +129,20 @@ export default function Home() {
             Get Early Access
           </Button>
         </form>
-
-        {/* Social Link */}
-        <div className="mt-6 sm:mt-20 flex justify-center items-center space-x-4">
-          <Link
-            href={"https://twitter.com/raha_pay"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image src={x} alt="social icon x" width={30} height={30} />
-          </Link>
-          <Link
-            href={"https://www.linkedin.com/company/rahapay/"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src={ig}
-              alt="social icon instagram"
-              width={30}
-              height={30}
-            />
-          </Link>
-          <Link
-            href={"https://www.linkedin.com/company/rahapay/"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src={lin}
-              alt="social icon linkedin"
-              width={30}
-              height={30}
-            />
-          </Link>
-          <Link href={"/"} target="_blank" rel="noopener noreferrer">
-            <Image src={wa} alt="social icon whatsapp" width={30} height={30} />
-          </Link>
-        </div>
       </div>
-
-      <div className="absolute bottom-0 right-0 z-10 w-full max-w-[180px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[450px]">
+      <div className="flex h-5/12 md:h-auto w-full sm:w-4/5 lg:w-3/5 px-5 md:p-0">
         <Image
-          src={phone}
+          src={heroImg}
           alt="phone"
           layout="responsive"
-          width={450}
-          height={537}
+          loading="lazy"
+          quality={75}
+          width={350}
+          height={200}
+          className=""
         />
       </div>
-    </main>
+
+      </main>
   );
 }
