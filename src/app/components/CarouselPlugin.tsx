@@ -17,9 +17,9 @@ export default function CarouselPlugin() {
     <div className="font-bold text-black">
       <div className="flex items-center justify-center">
         <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-800 w-full text-end mr-2 md:mr-4">The future of</span>
-        <div className="h-[60px] w-full relative overflow-hidden">
+        <div className="h-[60px] md:h-[77px] w-full relative overflow-hidden">
           <div
-            className={`absolute w-full h-full flex items-center justify-start transition-transform duration-500 ease-in-out ${
+            className={`absolute w-full h-full flex items-center justify-start transition-transform duration-500 top-0 ease-in-out ${
               currentText === "Bill Payment" ? "translate-y-0" : "-translate-y-full"
             }`}
           >
