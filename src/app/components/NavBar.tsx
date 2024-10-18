@@ -10,7 +10,7 @@ function NavBar() {
       <div className="flex items-center w-1/3 sm:w-auto">
         <Image src={logo} alt="Logo" width={150} height={50} />
       </div>
-      <Button className="p-2 md:px-4 md:py-4 bg-[#000] hover:bg-[004] rounded-md text-sm sm:text-lg text-white">
+      <Button className="p-2 md:px-5 md:py-4 bg-[#000] hover:bg-[004] rounded-full text-sm sm:text-lg text-white">
         <Link
           href={"https://chat.whatsapp.com/CSLZVVw7UovDv65jhBA3DZ"}
           target="_blank"
