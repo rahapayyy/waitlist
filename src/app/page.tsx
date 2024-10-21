@@ -103,7 +103,7 @@ export default function Home() {
       <div className="relative flex flex-col items-center text-center text-white z-10 px-4 sm:px-0 w-full">
         <div className="w-full md:max-w-6xl lg:max-w-7xl mx-auto">
           <CarouselPlugin />
-          <p className="mt-4 text-lg md:text-xl text-black font-bricolage-grotesque text-center">
+          <p className="md:mt-4 text-lg md:text-xl text-black font-bricolage-grotesque text-center">
             Say Goodbye to Bill Hassles - Join the Waitlist Now and Be First to <br className="hidden sm:block" /> Simplify
             Your Finances!
           </p>
